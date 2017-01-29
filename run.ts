@@ -17,4 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import { EqualSolution } from "./equal"
 
 let solution = new EqualSolution();
-solution.solve();
+solution.solve(`1
+4
+2 2 3 7`);

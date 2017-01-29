@@ -21,7 +21,7 @@ declare var _input: string;
 function processData(input) {
     //Enter your code here
     let solution = new EqualSolution();
-    solution.solve();
+    // solution.solve();
 } 
 
 process.stdin.resume();
