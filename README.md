@@ -1,3 +1,3 @@
 ### JavaScript
 
-This is a project for working on the [HackerRank](https://www.hackerrank.com) problems.
+This is a project for working on the [HackerRank](https://www.hackerrank.com) problems in VSCode with TypeScript.

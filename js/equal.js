@@ -12,9 +12,17 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-
-import { EqualSolution } from "./equal"
-
-let solution = new EqualSolution();
-solution.solve();
+"use strict";
+/**
+ * EqualSolution
+ */
+var EqualSolution = (function () {
+    function EqualSolution() {
+    }
+    EqualSolution.prototype.solve = function () {
+        console.log("test");
+    };
+    return EqualSolution;
+}());
+exports.EqualSolution = EqualSolution;
+//# sourceMappingURL=equal.js.map

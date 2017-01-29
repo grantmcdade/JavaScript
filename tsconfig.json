@@ -9,6 +9,7 @@
     "files": [
         "prog.ts",
         "solution.ts",
-        "run.ts"
+        "run.ts",
+        "coinchange.ts"
     ]
 }
