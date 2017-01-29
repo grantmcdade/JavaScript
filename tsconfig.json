@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "outDir": "js"
+    },
+    "files": [
+        "prog.ts",
+        "solution.ts",
+        "run.ts"
+    ]
+}
