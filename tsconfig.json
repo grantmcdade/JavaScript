@@ -8,8 +8,8 @@
     },
     "files": [
         "prog.ts",
-        "solution.ts",
         "run.ts",
-        "coinchange.ts"
+        "coinchange.ts",
+        "equal.ts"
     ]
 }
