@@ -14,11 +14,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
-// import { EqualSolution } from "./equal"
-// let solution = new EqualSolution();
-// solution.solve(`1
-// 4
-// 2 2 3 7`);
+import { EqualSolution } from "./equal"
+let solution = new EqualSolution();
+solution.solve(`1
+4
+2 2 3 7`);
 
 // import { FibSolution } from "./fib"
 // let solution = new FibSolution();
@@ -32,6 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // let solution = new UniqueBSTSolution();
 // solution.solve();
 
-import { SubsetSumSolution } from "./subsetsum"
-let solution = new SubsetSumSolution();
-solution.solve();
+// import { SubsetSumSolution } from "./subsetsum"
+// let solution = new SubsetSumSolution();
+// solution.solve();

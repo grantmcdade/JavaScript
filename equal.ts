@@ -22,20 +22,16 @@ export class EqualSolution {
     public solve(input: string) {
         let lines = input.split('\n');
         let testCount = parseInt(lines[0]);
-        for (var test = 1; test < testCount; test += 2) {
+        for (let test = 1; test <= testCount; test += 2) {
             let coInterCount = parseInt(lines[test]);
             let chocolateCount = lines[test + 1].split(' ');
             chocolateCount.map(Number);
 
             // Find the least number of operations
-            let minOperations: number[] = [];
-            for (var intern = 0; intern < coInterCount; intern++) {
+            let minOperations: number[][] = [];
+            for (let intern = 0; intern < coInterCount; intern++) {
                 let currentChocolateCount = chocolateCount[intern];
-                if (intern === 0 || intern === 1) {
-                    minOperations[intern] = 0;
-                } else {
-                    minOperations[intern - 1] + minOperations[intern - 2];
-                }
+
             }
         }
     }
