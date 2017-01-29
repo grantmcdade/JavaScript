@@ -34,8 +34,6 @@ export class EqualSolution {
                 if (intern === 0 || intern === 1) {
                     minOperations[intern] = 0;
                 } else {
-
-
                     minOperations[intern - 1] + minOperations[intern - 2];
                 }
             }

@@ -13,25 +13,26 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+declare  var console;
 
-// import { EqualSolution } from "./equal"
-// let solution = new EqualSolution();
-// solution.solve(`1
-// 4
-// 2 2 3 7`);
+/**
+ * FibSolution
+ */
+export class FibSolution {
+    solve() {
+        let target = 10;
+        let dp: number[] = [];
 
-// import { FibSolution } from "./fib"
-// let solution = new FibSolution();
-// solution.solve();
+        for (let i = 0; i <= target; i++) {
+            if (i === 0) {
+                dp.push(0);
+            } else if (i === 1) {
+                dp.push(1);
+            } else {
+                dp.push(dp[i - 1] + dp[i - 2]);
+            }
+        }
 
-// import { MaxSubArraySolution } from "./maxsubarray"
-// let solution = new MaxSubArraySolution();
-// solution.solve();
-
-// import { UniqueBSTSolution } from "./uniqueBsts"
-// let solution = new UniqueBSTSolution();
-// solution.solve();
-
-import { SubsetSumSolution } from "./subsetsum"
-let solution = new SubsetSumSolution();
-solution.solve();
+        console.log(dp[dp.length - 1]);
+    }
+}

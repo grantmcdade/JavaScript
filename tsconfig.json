@@ -10,6 +10,10 @@
         "prog.ts",
         "run.ts",
         "coinchange.ts",
-        "equal.ts"
+        "equal.ts",
+        "fib.ts",
+        "maxsubarray.ts",
+        "uniqueBsts.ts",
+        "subsetsum.ts"
     ]
 }

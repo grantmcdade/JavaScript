@@ -13,25 +13,24 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+declare var console;
 
-// import { EqualSolution } from "./equal"
-// let solution = new EqualSolution();
-// solution.solve(`1
-// 4
-// 2 2 3 7`);
+/**
+ * UniqueBSTSolution
+ */
+export class UniqueBSTSolution {
+    solve() {
+        let input = 3;
+        let maxBsts: number[] = [];
 
-// import { FibSolution } from "./fib"
-// let solution = new FibSolution();
-// solution.solve();
+        for (var i = 1; i <= input; i++) {
+            if (i === 1) {
+                maxBsts.push(1);
+            } else {
+                maxBsts.push(maxBsts[i - 2] + 2);
+            }
+        }
 
-// import { MaxSubArraySolution } from "./maxsubarray"
-// let solution = new MaxSubArraySolution();
-// solution.solve();
-
-// import { UniqueBSTSolution } from "./uniqueBsts"
-// let solution = new UniqueBSTSolution();
-// solution.solve();
-
-import { SubsetSumSolution } from "./subsetsum"
-let solution = new SubsetSumSolution();
-solution.solve();
+        console.log(maxBsts[maxBsts.length - 1]);
+    }
+}

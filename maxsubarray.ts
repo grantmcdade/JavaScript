@@ -13,25 +13,29 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+declare var console;
 
-// import { EqualSolution } from "./equal"
-// let solution = new EqualSolution();
-// solution.solve(`1
-// 4
-// 2 2 3 7`);
+/**
+ * MaxSubArraySolution to calculate the maximum contiguous
+ * subarray sum.
+ */
+export class MaxSubArraySolution {
+    solve() {
+        let input = [2, -9, 5, 1, -4, 6, 0, -7, 8];
 
-// import { FibSolution } from "./fib"
-// let solution = new FibSolution();
-// solution.solve();
+        let currSum = 0;
+        let maxSum = 0;
+        input.forEach(value => {
+            currSum += value;
+            if (currSum > maxSum) {
+                maxSum = currSum;
+            }
 
-// import { MaxSubArraySolution } from "./maxsubarray"
-// let solution = new MaxSubArraySolution();
-// solution.solve();
+            if (currSum < 0) {
+                currSum = 0;
+            }
+        });
 
-// import { UniqueBSTSolution } from "./uniqueBsts"
-// let solution = new UniqueBSTSolution();
-// solution.solve();
-
-import { SubsetSumSolution } from "./subsetsum"
-let solution = new SubsetSumSolution();
-solution.solve();
+        console.log(maxSum);
+    }
+}
