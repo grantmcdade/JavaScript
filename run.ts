@@ -35,3 +35,7 @@ solution.solve(`1
 // import { SubsetSumSolution } from "./subsetsum"
 // let solution = new SubsetSumSolution();
 // solution.solve();
+
+// import { Day9Solution } from "./day9"
+// let solution = new Day9Solution();
+// solution.solve("3");
