@@ -15,6 +15,7 @@
         "maxsubarray.ts",
         "uniqueBsts.ts",
         "subsetsum.ts",
-        "day9.ts"
+        "day9.ts",
+        "day10.ts"
     ]
 }
