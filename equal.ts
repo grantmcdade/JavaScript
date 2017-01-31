@@ -20,61 +20,82 @@ declare var console;
  */
 export class EqualSolution {
     public solve(input: string) {
+        let currentLine = 0;
         let lines = input.split('\n');
-        let testCount = parseInt(lines[0]);
-        let currentLine = 1;
+        let testCount = parseInt(lines[currentLine++]);
         let options = [1, 2, 5];
+
+        // Tests
         for (let test = 1; test <= testCount; test++) {
-            let coInterCount = parseInt(lines[currentLine++]);
-            let chocolateCount = lines[currentLine++].split(' ').map(Number);
 
-            let minOperations: number[][][] = [];
-            for (let k = 0; k < coInterCount; k++) {
-                let internChocolateCount: number = <any>chocolateCount[k] as number;
-                if (minOperations[k] === undefined) {
-                    minOperations[k] = [];
-                }
-                for (let m = 0; m <= internChocolateCount; m++) {
-                    if (minOperations[k][m] === undefined) {
-                        minOperations[k][m] = [];
+            let coInternCount = parseInt(lines[currentLine++]);
+            let chocolateCounts = lines[currentLine++].split(' ').map(Number);
+            let minChocolateCount = Number.MAX_SAFE_INTEGER;
+            let maxChocolateCount = Number.MIN_SAFE_INTEGER;
+            chocolateCounts.forEach(element => {
+                minChocolateCount = Math.min(minChocolateCount, element);
+                maxChocolateCount = Math.max(maxChocolateCount, element);
+            });
+
+            let operationsTable: number[][] = [];
+            // Buil a table of minimum operations
+            let columnCount = maxChocolateCount - minChocolateCount;
+            for (let row = 0; row < options.length; row++) {
+                for (let col = 0; col <= columnCount; col++) {
+                    if (operationsTable[row] === undefined) {
+                        operationsTable[row] = [];
                     }
-                    for (var n = 0; n < options.length; n++) {
-                        if (minOperations[k][m][n] === undefined) {
-                            minOperations[k][m][n] = Number.MAX_SAFE_INTEGER;
-                        }
+
+                    operationsTable[row][col] = Number.MAX_SAFE_INTEGER;
+
+                    if (col === 0) {
+                        operationsTable[row][col] = 1;
+                        continue;
                     }
-                }
-            }
 
-            // Find the least number of operations
-            for (let intern = 0; intern < coInterCount; intern++) {
-                let internChocolateCount: number = <any>chocolateCount[intern] as number;
-                let internTable = minOperations[intern];
-                for (let chocolateCount = 1; chocolateCount <= internChocolateCount; chocolateCount++) {
-                    for (let optionIndex = 0; optionIndex < options.length; optionIndex++) {
-
-                        let option = options[optionIndex];
-                        if (option === chocolateCount) {
-                            internTable[chocolateCount][option] = Math.min(internTable[chocolateCount - 1][option] + 1, chocolateCount / option);
-                        }
-
-                        // if (chocolateCount < options[optionIndex]) {
-                        //     minOperations[intern][chocolateCount][optionIndex] = minOperations[intern][chocolateCount - 1][options[optionIndex]];
-                        // } else if (chocolateCount === options[optionIndex]) {
-                        //     minOperations[intern][chocolateCount][optionIndex] = 1;
-                        // }
-                        // else if (chocolateCount % options[optionIndex] === 0) {
-                        //     minOperations[intern][chocolateCount][optionIndex] = Math.min(minOperations[intern][chocolateCount - 1][options[optionIndex]] + 1, chocolateCount / options[optionIndex]);
-                        // }
-                        // else {
-                        //     minOperations[intern][chocolateCount][optionIndex] = minOperations[intern][chocolateCount - 1][optionIndex] + 1;
-                        // }
-
+                    if (row === 0) {
+                        operationsTable[row][col] = col;
+                        continue;
                     }
+
+                    let option = options[row];
+
+                    if (col < option) {
+                        operationsTable[row][col] = operationsTable[row - 1][col];
+                        continue;
+                    }
+
+                    let operations = this.operationsRequired(col);
+                    operationsTable[row][col] = Math.min(operationsTable[row][col - (option - 1)] + 1, operations);
                 }
             }
 
-            console.log(minOperations);
+            let minOperationsNeeded = Number.MAX_SAFE_INTEGER;
+            chocolateCounts.forEach((element, index) => {
+                let operationsNeeded = operationsTable[2][element - minChocolateCount];
+                minOperationsNeeded = Math.min(minOperationsNeeded, operationsNeeded);
+            });
+
+            console.log(minOperationsNeeded);
         }
+    }
+
+    operationsRequired(amount: number) {
+        let operations = 0;
+        if (amount >= 5) {
+            operations += Math.floor(amount / 5);
+            amount = amount % 5;
+        }
+
+        if (amount >= 2) {
+            operations += Math.floor(amount / 2);
+            amount = amount % 2;
+        }
+
+        if (amount >= 1) {
+            operations += amount;
+        }
+
+        return operations;
     }
 }
