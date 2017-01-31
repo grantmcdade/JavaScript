@@ -13,24 +13,24 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { EqualSolution } from "./equal"
+declare var console;
 
-declare var process: any;
-declare var _input: string;
+/**
+ * UniqueBSTSolution
+ */
+export class UniqueBSTSolution {
+    solve() {
+        let input = 3;
+        let maxBsts: number[] = [];
 
-function processData(input) {
-    //Enter your code here
-    let solution = new EqualSolution();
-    // solution.solve();
-} 
+        for (var i = 1; i <= input; i++) {
+            if (i === 1) {
+                maxBsts.push(1);
+            } else {
+                maxBsts.push(maxBsts[i - 2] + 2);
+            }
+        }
 
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-_input = "";
-process.stdin.on("data", function (input) {
-    _input += input;
-});
-
-process.stdin.on("end", function () {
-   processData(_input);
-});
+        console.log(maxBsts[maxBsts.length - 1]);
+    }
+}

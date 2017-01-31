@@ -1,15 +1,21 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
+        "target": "es2016",
         "noImplicitAny": false,
         "sourceMap": true,
         "outDir": "js"
     },
     "files": [
         "prog.ts",
-        "solution.ts",
         "run.ts",
-        "coinchange.ts"
+        "coinchange.ts",
+        "equal.ts",
+        "fib.ts",
+        "maxsubarray.ts",
+        "uniqueBsts.ts",
+        "subsetsum.ts",
+        "day9.ts",
+        "day10.ts"
     ]
 }

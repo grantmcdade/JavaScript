@@ -13,24 +13,26 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { EqualSolution } from "./equal"
+declare  var console;
 
-declare var process: any;
-declare var _input: string;
+/**
+ * FibSolution
+ */
+export class FibSolution {
+    solve() {
+        let target = 10;
+        let dp: number[] = [];
 
-function processData(input) {
-    //Enter your code here
-    let solution = new EqualSolution();
-    // solution.solve();
-} 
+        for (let i = 0; i <= target; i++) {
+            if (i === 0) {
+                dp.push(0);
+            } else if (i === 1) {
+                dp.push(1);
+            } else {
+                dp.push(dp[i - 1] + dp[i - 2]);
+            }
+        }
 
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-_input = "";
-process.stdin.on("data", function (input) {
-    _input += input;
-});
-
-process.stdin.on("end", function () {
-   processData(_input);
-});
+        console.log(dp[dp.length - 1]);
+    }
+}

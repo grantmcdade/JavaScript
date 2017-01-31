@@ -13,24 +13,21 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { EqualSolution } from "./equal"
+declare var console;
 
-declare var process: any;
-declare var _input: string;
+/**
+ * Day9Solution
+ */
+export class Day9Solution {
+    solve(input: string) {
+        let n = parseInt(input);
+        console.log(this.factorial(n));
+    }
 
-function processData(input) {
-    //Enter your code here
-    let solution = new EqualSolution();
-    // solution.solve();
-} 
-
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-_input = "";
-process.stdin.on("data", function (input) {
-    _input += input;
-});
-
-process.stdin.on("end", function () {
-   processData(_input);
-});
+    factorial(n: number) {
+        if (n <= 1) {
+            return 1;
+        }
+        return n * this.factorial(n - 1);
+    }
+}

@@ -13,24 +13,29 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { EqualSolution } from "./equal"
+declare var console;
 
-declare var process: any;
-declare var _input: string;
+/**
+ * MaxSubArraySolution to calculate the maximum contiguous
+ * subarray sum.
+ */
+export class MaxSubArraySolution {
+    solve() {
+        let input = [2, -9, 5, 1, -4, 6, 0, -7, 8];
 
-function processData(input) {
-    //Enter your code here
-    let solution = new EqualSolution();
-    // solution.solve();
-} 
+        let currSum = 0;
+        let maxSum = 0;
+        input.forEach(value => {
+            currSum += value;
+            if (currSum > maxSum) {
+                maxSum = currSum;
+            }
 
-process.stdin.resume();
-process.stdin.setEncoding("ascii");
-_input = "";
-process.stdin.on("data", function (input) {
-    _input += input;
-});
+            if (currSum < 0) {
+                currSum = 0;
+            }
+        });
 
-process.stdin.on("end", function () {
-   processData(_input);
-});
+        console.log(maxSum);
+    }
+}
