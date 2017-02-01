@@ -62,11 +62,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // let solution = new Day10Solution();
 // solution.solve("13");
 
-import { LuckyNumbersSolution } from "./lucky_numbers"
-let solution = new LuckyNumbersSolution();
-solution.solve(`5
-1
-4
-11
-17
-29`);
+// import { LuckyNumbersSolution } from "./lucky_numbers"
+// let solution = new LuckyNumbersSolution();
+// solution.solve(`5
+// 1
+// 4
+// 11
+// 17
+// 29`);
+
+import { Day11Solution } from "./day11"
+let solution = new Day11Solution();
+solution.solve(`1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 2 4 4 0
+0 0 0 2 0 0
+0 0 1 2 4 0`);

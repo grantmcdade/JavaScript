@@ -17,6 +17,7 @@
         "subsetsum.ts",
         "day9.ts",
         "day10.ts",
-        "lucky_numbers.ts"
+        "lucky_numbers.ts",
+        "day11.ts"
     ]
 }
