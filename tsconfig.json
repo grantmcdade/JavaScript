@@ -6,18 +6,10 @@
         "sourceMap": true,
         "outDir": "js"
     },
-    "files": [
-        "prog.ts",
-        "run.ts",
-        "coinchange.ts",
-        "equal.ts",
-        "fib.ts",
-        "maxsubarray.ts",
-        "uniqueBsts.ts",
-        "subsetsum.ts",
-        "day9.ts",
-        "day10.ts",
-        "lucky_numbers.ts",
-        "day11.ts"
+    "include": [
+        "**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
     ]
 }
