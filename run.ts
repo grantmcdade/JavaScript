@@ -13,6 +13,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+declare function require(moduleName: string): any;
+
+const fs = require('fs');
 
 // import { EqualSolution } from "./equal"
 // let solution = new EqualSolution();
@@ -118,12 +121,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // solution.solve(`5 7
 // 2 5 4 5 2`);
 
-import { OrganiseContainersSolution } from "./organise_containers"
-let solution = new OrganiseContainersSolution();
-solution.solve(`2
+import { OrganiseContainers2Solution } from "./organise2_containers"
+// fs.readFile('./test_data/organise_containers_input04.txt', 'utf8', (err: Error, data: string) => {
+//     if (!err) {
+//         let solution = new OrganiseContainersSolution();
+//         solution.solve(data);
+//     } else {
+//         throw err;
+//     }
+// });
+
+// import { OrganiseContainersSolution } from "./organise_containers"
+let solution = new OrganiseContainers2Solution();
+solution.solve(`3
 2
 1 1
 1 1
 2
 0 2
-1 1`);
+1 1
+3
+2 2 2
+2 2 2
+2 2 2`);

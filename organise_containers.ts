@@ -36,54 +36,48 @@ export class OrganiseContainersSolution {
                 M.push(this.readLine().split(' ').map(Number));
             }
             // your code goes here
-            // let containers: number[][] =  [];
-            // for (let rowIndex = 0; rowIndex < M.length; rowIndex++) {
-            //     let row = M[rowIndex];
-            //     for (let colIndex = 0; colIndex < M[rowIndex].length; colIndex++) {
-            //         let item = M[rowIndex][colIndex];
-            //         containers
-            //     }
-            // }
-
-            let foundSwap = true;
-            while (foundSwap) {
-                foundSwap = false;
-                for (let row = 1; row < M.length; row++) {
-                    for (let col = 0; col < M[row].length; col++) {
-                        if (col > row) {
-                            M[row][col] += 1;
-                            M[row - 1][col] -= 1;
-                            foundSwap = true;
+            for (let container = 0; container < M.length; container++) {
+                let foundSwap = true;
+                let extraRounds = 1;
+                while (foundSwap || extraRounds > 0) {
+                    foundSwap = false;
+                    for (let outerType = 0; outerType < M[container].length; outerType++) {
+                        if (container !== outerType && M[container][outerType] > 0) {
+                            for (let innerType = 0; innerType < M[container].length; innerType++) {
+                                if (outerType != innerType) {
+                                    if (outerType < container) {
+                                        let amountToTransfer = Math.min(M[container][outerType], M[container][innerType]);
+                                        M[container][innerType] += amountToTransfer;
+                                        M[container][outerType] -= amountToTransfer;
+                                        foundSwap = foundSwap ? foundSwap : amountToTransfer > 0;
+                                    } else if (outerType > container) {
+                                        let amountToTransfer = Math.min(M[container][outerType], M[container][innerType]);
+                                        M[container][outerType] -= amountToTransfer;
+                                        M[container][innerType] += amountToTransfer;
+                                        foundSwap = foundSwap ? foundSwap : amountToTransfer > 0;
+                                    }
+                                }
+                            }
                         }
+                    }
+
+                    if (!foundSwap) {
+                        --extraRounds;
+                    } else {
+                        extraRounds = 1;
                     }
                 }
             }
 
             // Check if the result is valid
             let isValid = true;
-            let itemCounts: number[] = [];
-            for (let rowIndex = 0; rowIndex < M.length; rowIndex++) {
-                let container = M[rowIndex];
-                let items: number[] = [];
-
-                for (let colIndex = 0; colIndex < container.length; colIndex++) {
-                    let item = container[colIndex];
-                    if (items.length === 0 || items[0] != item) {
-                        items.push(item);
-                        if (items.length > 1) {
-                            isValid = false;
-                            break;
-                        }
-                        if (itemCounts[item] === undefined) {
-                            itemCounts[item] = rowIndex;
-                        }
-                        if (itemCounts[item] != undefined && itemCounts[item] != rowIndex) {
-                            isValid = false;
-                            break;
-                        }
+            for (let container = 0; container < M.length; container++) {
+                for (let type = 0; type < M[container].length; type++) {
+                    if (container !== type && M[container][type] !== 0) {
+                        isValid = false;
+                        break;
                     }
                 }
-
                 if (!isValid) {
                     break;
                 }
