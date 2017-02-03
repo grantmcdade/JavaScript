@@ -71,11 +71,59 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // 17
 // 29`);
 
-import { Day11Solution } from "./day11"
-let solution = new Day11Solution();
-solution.solve(`1 1 1 0 0 0
-0 1 0 0 0 0
-1 1 1 0 0 0
-0 0 2 4 4 0
-0 0 0 2 0 0
-0 0 1 2 4 0`);
+// import { Day11Solution } from "./day11"
+// let solution = new Day11Solution();
+// solution.solve(`1 1 1 0 0 0
+// 0 1 0 0 0 0
+// 1 1 1 0 0 0
+// 0 0 2 4 4 0
+// 0 0 0 2 0 0
+// 0 0 1 2 4 0`);
+
+
+// import { GridlandProvincesSolution } from "./gridland-provinces"
+// let solution = new GridlandProvincesSolution();
+// solution.solve(`3
+// 1
+// a
+// a
+// 3
+// dab
+// abd
+// 5
+// ababa
+// babab`);
+
+// import { TournamentSolution } from "./tournament"
+// let solution = new TournamentSolution();
+// solution.solve(`3
+// 5
+// 1 2 2
+// 1 3 1
+// 3 4 1
+// 3 5 2
+// 5
+// 1 2 0
+// 2 3 2
+// 3 4 2
+// 4 5 0
+// 5
+// 1 2 0
+// 1 3 1
+// 3 4 0
+// 3 5 2`);
+
+// import { HurdleRaceSolution } from "./hurdle_race"
+// let solution = new HurdleRaceSolution();
+// solution.solve(`5 7
+// 2 5 4 5 2`);
+
+import { OrganiseContainersSolution } from "./organise_containers"
+let solution = new OrganiseContainersSolution();
+solution.solve(`2
+2
+1 1
+1 1
+2
+0 2
+1 1`);

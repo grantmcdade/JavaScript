@@ -13,7 +13,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-declare var console;
+declare var console: any;
 
 /**
  * Day9Solution
@@ -24,7 +24,7 @@ export class Day9Solution {
         console.log(this.factorial(n));
     }
 
-    factorial(n: number) {
+    factorial(n: number): number {
         if (n <= 1) {
             return 1;
         }
